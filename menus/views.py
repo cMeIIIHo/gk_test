@@ -9,5 +9,5 @@ class MenuItemView(View):
             'intermediate_parameters': intermediate_parameters,
             'menu_item': menu_item,
         }
-        return render(request, 'menus/menu_item.html', context)
+        return render(request, 'menus/menus.html', context)
 
