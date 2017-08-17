@@ -11,7 +11,3 @@ class MenuItemView(View):
         }
         return render(request, 'menus/menu_item.html', context)
 
-# def menu_item(request, *args):
-#     context = args
-#     print('context: ', context)
-#     return render(request, 'menus/menu_item.html', context)
