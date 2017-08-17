@@ -8,3 +8,7 @@ class MenuItem(models.Model):
 
     def __str__(self):
         return self.name
+
+    def children(self):
+        return self.menuitem_set.all()
+

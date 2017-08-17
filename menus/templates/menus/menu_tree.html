@@ -1,1 +1,20 @@
-<div>{{menu_item}}</div>
+<style>
+    .menu_item {
+    padding-left: 1.2em;
+    }
+</style>
+
+{% load menus_extras %}
+{{ menu_item.name }}
+{% if menu_item.children %}
+<details>
+    <summary>
+
+    </summary>
+    {% for child in menu_item.children %}
+    <div class="menu_item">
+        {% draw_menu child.name %}
+    </div>
+    {% endfor %}
+</details>
+{% endif %}

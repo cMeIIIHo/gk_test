@@ -7,5 +7,5 @@ register = template.Library()
 
 @register.inclusion_tag('menus/menu_tree.html', takes_context=True)
 def draw_menu(context, menu_name):
-    menu = get_object_or_404(MenuItem, name=menu_name, parent=None)
-    return {'menu_item': context['menu_item'], 'menu': menu}
+    menu_item = get_object_or_404(MenuItem, name=menu_name)
+    return {'menu_item': menu_item}
