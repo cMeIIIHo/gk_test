@@ -11,7 +11,7 @@ register = template.Library()
 
 @register.inclusion_tag('menus/menu_tree.html', takes_context=True)
 def draw_menu(context, menu_name):
-    menu = get_object_or_404(MenuItem, name=menu_name)
+    menu = get_object_or_404(MenuItem, name=menu_name, parent=None)
     local_context = {'menu_item': menu}
     requested_url = context['request'].path
     try:
