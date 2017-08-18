@@ -16,15 +16,13 @@ class MenuItem(models.Model):
             named_url_parts = self.named_url.split()
             url_name = named_url_parts[0]
             params = named_url_parts[1:len(named_url_parts)]
-            reversed_explicit_url = reverse(url_name, args=params)
+            reversed_named_url = reverse(url_name, args=params)
             if self.explicit_url:
-                if self.explicit_url != reversed_explicit_url:
+                if self.explicit_url != reversed_named_url:
                     raise Http404('explicit_url does not match named_url')
             else:
-                self.explicit_url = reversed_explicit_url
+                self.explicit_url = reversed_named_url
         super(MenuItem, self).save(*args, **kwargs)
-
-
 
     def __str__(self):
         return self.name
