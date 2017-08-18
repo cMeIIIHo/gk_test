@@ -7,8 +7,8 @@ from django.http import Http404
 class MenuItem(models.Model):
     name = models.CharField(max_length=50)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, blank=True, null=True)
-    explicit_url = models.CharField(max_length=100, blank=True, unique=True)
-    named_url = models.CharField(max_length=100, blank=True, unique=True)
+    explicit_url = models.CharField(max_length=100, blank=True, null=True, unique=True)
+    named_url = models.CharField(max_length=100, blank=True, null=True, unique=True)
 
     def save(self, *args, **kwargs):
         if self.named_url:
