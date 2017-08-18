@@ -5,7 +5,7 @@
 </style>
 
 {% load menus_extras %}
-{{ menu_item.name }}
+<a href="{{ menu_item.get_absolute_url }}">{{ menu_item.get_elder_ids }}</a>
 {% if menu_item.children %}
 <details>
     <summary>
@@ -13,7 +13,7 @@
     </summary>
     {% for child in menu_item.children %}
     <div class="menu_item">
-        {% draw_menu child.id %}
+        {% draw_menu_item_children child.id %}
     </div>
     {% endfor %}
 </details>
