@@ -1,6 +1,5 @@
 from django.db import models
 from django.core.urlresolvers import reverse
-from django.core.urlresolvers import NoReverseMatch
 from django.http import Http404
 
 
@@ -28,16 +27,6 @@ class MenuItem(models.Model):
 
     def children(self):
         return self.menuitem_set.all()
-
-    # # todo: sure?
-    # def get_absolute_url(self):
-    #     try:
-    #         named_url_parts = self.url.split()
-    #         url_name = named_url_parts[0]
-    #         args = named_url_parts[1:len(named_url_parts)]
-    #         return reverse(url_name, args=args)
-    #     except NoReverseMatch:
-    #         return self.url
 
     def get_elder_ids(self):
         if self.parent:
